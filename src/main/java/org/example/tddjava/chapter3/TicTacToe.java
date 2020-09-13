@@ -3,12 +3,13 @@ package org.example.tddjava.chapter3;
 public class TicTacToe {
 
     private Character[][] board = {{'\0', '\0', '\0'}, {'\0', '\0', '\0'}, {'\0', '\0', '\0'}};
+    private Character lastPlayer = '\0';
 
     public void play(int x, int y) {
         checkAxis(x);
         checkAxis(y);
-
         setBox(x, y);
+        lastPlayer = nextPlayer();
     }
 
     private void checkAxis(int axis) {
@@ -26,6 +27,9 @@ public class TicTacToe {
     }
 
     public char nextPlayer() {
-        return 'X';
+        if (lastPlayer != 'X') {
+            return 'X';
+        }
+        return 'O';
     }
 }
