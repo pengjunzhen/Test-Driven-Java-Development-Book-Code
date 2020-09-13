@@ -9,8 +9,8 @@ public class TicTacToe {
     public String play(int x, int y) {
         checkAxis(x);
         checkAxis(y);
-        setBox(x, y);
         lastPlayer = nextPlayer();
+        setBox(x, y);
         if (isWin()) {
             return lastPlayer + " is the winner";
         }
@@ -32,7 +32,7 @@ public class TicTacToe {
             }
         }
 
-        if (diagonal1 == playerTotal || diagonal2== playerTotal) {
+        if (diagonal1 == playerTotal || diagonal2 == playerTotal) {
             return true;
         }
         return false;
@@ -48,7 +48,7 @@ public class TicTacToe {
         if (board[x - 1][y - 1] != '\0') {
             throw new RuntimeException();
         } else {
-            board[x - 1][y - 1] = 'X';
+            board[x - 1][y - 1] = lastPlayer;
         }
     }
 
