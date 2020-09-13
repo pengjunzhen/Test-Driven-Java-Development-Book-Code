@@ -13,8 +13,21 @@ public class TicTacToe {
         setBox(x, y);
         if (isWin()) {
             return lastPlayer + " is the winner";
+        } else if (isDraw()) {
+            return "The result is draw";
         }
         return "no winner";
+    }
+
+    private boolean isDraw() {
+        for (int x = 0; x < SIZE; x++) {
+            for (int y = 0; y < SIZE; y++) {
+                if (board[x][y] == '\0') {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private boolean isWin() {

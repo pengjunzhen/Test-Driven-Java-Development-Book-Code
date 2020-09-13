@@ -90,5 +90,19 @@ public class TicTacToeTest {
         String result = ticTacToe.play(3, 1);   // X
         Assertions.assertEquals("X is the winner", result);
     }
+
+    @Test
+    public void should_draw_when_all_boxes_were_filled() {
+        ticTacToe.play(1, 1);
+        ticTacToe.play(1, 2);
+        ticTacToe.play(1, 3);
+        ticTacToe.play(2, 1);
+        ticTacToe.play(2, 3);
+        ticTacToe.play(2, 2);
+        ticTacToe.play(3, 1);
+        ticTacToe.play(3, 3);
+        String actual = ticTacToe.play(3, 2);
+        Assertions.assertEquals("The result is draw", actual);
+    }
 }
 
