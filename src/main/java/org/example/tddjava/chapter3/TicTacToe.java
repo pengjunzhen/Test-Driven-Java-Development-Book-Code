@@ -1,23 +1,33 @@
 package org.example.tddjava.chapter3;
 
+import com.sun.glass.ui.Size;
+import sun.util.locale.provider.FallbackLocaleProviderAdapter;
+
 public class TicTacToe {
 
     private Character[][] board = {{'\0', '\0', '\0'}, {'\0', '\0', '\0'}, {'\0', '\0', '\0'}};
     private Character lastPlayer = '\0';
+    private static final int SIZE = 3;
 
     public String play(int x, int y) {
         checkAxis(x);
         checkAxis(y);
         setBox(x, y);
         lastPlayer = nextPlayer();
-        for (int index = 0; index < 3; index++) {
-            if (board[0][index] == lastPlayer &&
-                    board[1][index] == lastPlayer &&
-                    board[2][index] == lastPlayer) {
-                return lastPlayer + " is the winner";
-            }
+        if (isWin()) {
+            return lastPlayer + " is the winner";
         }
         return "no winner";
+    }
+
+    private boolean isWin() {
+
+        for (int i = 0; i < SIZE; i++) {
+            if (board[0][i] + board[1][i] + board[2][i] == (lastPlayer * SIZE)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void checkAxis(int axis) {
