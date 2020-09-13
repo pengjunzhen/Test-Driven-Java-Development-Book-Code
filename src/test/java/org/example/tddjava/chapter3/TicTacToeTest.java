@@ -33,11 +33,17 @@ public class TicTacToeTest {
         Assertions.assertEquals('X', ticTacToe.nextPlayer());
     }
 
-//    feat: chapter3: 需求2：
     @Test
     public void should_return_O_when_last_player_was_X() {
         ticTacToe.play(1, 2);
         Assertions.assertEquals('O', ticTacToe.nextPlayer());
+    }
+
+    @Test
+    public void should_return_X_when_last_player_was_O() {
+        ticTacToe.play(1, 2);
+        ticTacToe.play(2, 3);
+        Assertions.assertEquals('X', ticTacToe.nextPlayer());
     }
 }
 
