@@ -22,4 +22,9 @@ public class TicTacToeTest {
         Assertions.assertThrows(RuntimeException.class, () -> ticTacToe.play(1, 5));
     }
 
+    @Test
+    public void should_throw_RuntimeException_when_position_occupied() {
+        ticTacToe.play(1, 2);
+        Assertions.assertThrows(RuntimeException.class, () -> ticTacToe.play(1, 2));
+    }
 }
