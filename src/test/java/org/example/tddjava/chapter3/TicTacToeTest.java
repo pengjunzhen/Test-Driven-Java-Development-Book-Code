@@ -27,4 +27,9 @@ public class TicTacToeTest {
         ticTacToe.play(1, 2);
         Assertions.assertThrows(RuntimeException.class, () -> ticTacToe.play(1, 2));
     }
+
+    @Test
+    public void should_return_X_when_given_first_player() {
+        Assertions.assertEquals('X', ticTacToe.nextPlayer());
+    }
 }
