@@ -16,4 +16,10 @@ public class TicTacToeTest {
     public void should_throw_RuntimeException_when_x_outside_board() {
         Assertions.assertThrows(RuntimeException.class, () -> ticTacToe.play(5, 1));
     }
+
+    @Test
+    public void should_throw_RuntimeException_when_y_outside_board() {
+        Assertions.assertThrows(RuntimeException.class, () -> ticTacToe.play(1, 5));
+    }
+
 }
